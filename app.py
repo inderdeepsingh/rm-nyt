@@ -18,8 +18,8 @@ def get_image(d):
     img = pdf_buff.thumbnail_image(1404, height=1872, crop=i.LOW)
     return img.write_to_buffer(".png")
 
-@app.get('/nyt')
-async def nyt_image():
+@app.get('/today')
+async def today():
     try:
         d = datetime.date.today().isoformat().replace('-', '/')
         image = get_image(d)
