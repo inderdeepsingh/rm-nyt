@@ -1,4 +1,5 @@
 import datetime
+import functools
 
 
 from fastapi import FastAPI, HTTPException
@@ -8,6 +9,7 @@ import requests
 
 app = FastAPI()
 
+@functools.lru_cache(maxsize=5)
 def get_image(d):
     i = pyvips.enums.Interesting()
     url = f"https://static01.nyt.com/images/{d}/nytfrontpage/scan.pdf"
