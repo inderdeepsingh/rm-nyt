@@ -56,7 +56,6 @@ def get_image(dt):
 async def today():
     image = None
     d = date.today()
-    d = d + timedelta(days=1)
     try:
         try:
             image = get_image(d)
